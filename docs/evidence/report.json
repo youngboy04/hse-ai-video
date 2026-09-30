@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-30T17:39:21.710439+00:00",
+  "scope": "person_detection",
+  "purpose": "smoke_test",
+  "dataset": {
+    "name": "COCO8: проверка подключения детектора",
+    "source": "https://docs.ultralytics.com/datasets/detect/coco8/",
+    "splits": [
+      "train",
+      "val"
+    ],
+    "sha256": "740ff215da68270caefd403e81a1b50f3b9b95d462ae293b86b668244b25766d",
+    "images": 8,
+    "people": 10,
+    "negative_images": 5
+  },
+  "model": {
+    "file": "person.onnx",
+    "sha256": "a219f5401fb1af4d2cb01027d8e6e500b0f5e519ffbaeccbead57c375c75de07"
+  },
+  "runtime": {
+    "provider": "CPUExecutionProvider",
+    "python": "3.13.0",
+    "onnxruntime": "1.30.0",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD"
+  },
+  "thresholds": {
+    "confidence": 0.35,
+    "iou": 0.5
+  },
+  "metrics": {
+    "tp": 4,
+    "fp": 0,
+    "fn": 6,
+    "precision": 1.0,
+    "recall": 0.4,
+    "f1": 0.5714285714285714
+  },
+  "latency": {
+    "median_ms": 77.21,
+    "p95_ms": 114.38,
+    "warmup_frames": 3,
+    "samples": 8,
+    "scope": "preprocess + ONNX + postprocess, excludes disk I/O"
+  },
+  "limitations": [
+    "8 изображений из COCO train2017, возможное пересечение с обучением YOLO11. Это функциональная проверка, не независимое измерение качества на промышленной площадке.",
+    "Проверяется только обнаружение людей. Качество СИЗ, падений, трекинга и инцидентов этим набором не оценивается.",
+    "Это измерение на данном наборе и компьютере. Оно не подтверждает работу на производстве или производительность нескольких камер."
+  ],
+  "results": [
+    {
+      "image": "images/train/000000000009.jpg",
+      "image_sha256": "be0ecc9cacc0150f0a84f6dc098f3e5c526ac85f8a14c1a0d16c2a4eb3d305a6",
+      "label_sha256": "91e0c22ffeffd27ae1c176c38fc534ff4de980c20fafb32922f01dcd407b920e",
+      "targets": [],
+      "predictions": [],
+      "latency_ms": 92.575,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "image": "images/train/000000000025.jpg",
+      "image_sha256": "f7ddff65077bd4e362a890ed13b1cd931fd38882d49bae9e7e53e369e4b4d028",
+      "label_sha256": "73e4d0a58416a5814ad3e9d58b6927b3a4898c5a4fa18341d333261ddb215b86",
+      "targets": [],
+      "predictions": [],
+      "latency_ms": 68.437,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "image": "images/train/000000000030.jpg",
+      "image_sha256": "52a12b6af76049a23192320610a316b6c1ea8e7d12e083f15c18e1690c506e66",
+      "label_sha256": "1defb5823f183ade62575a6b4398f2609a4d9cabd428147c887b95e610a831d9",
+      "targets": [],
+      "predictions": [],
+      "latency_ms": 68.657,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "image": "images/train/000000000034.jpg",
+      "image_sha256": "8d5334f6c8d3e8b77d50726625eecc6896597f063d3801f1993ffcb9e6b05acb",
+      "label_sha256": "252857cf07883c38308b12ec978323222813ffd0fb9a98bbfe350b44ee1a62e7",
+      "targets": [],
+      "predictions": [],
+      "latency_ms": 126.124,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "image": "images/val/000000000036.jpg",
+      "image_sha256": "4c28394898302bef227834d63498a0fc54e4295f11c590c8a8ebcba51347bc03",
+      "label_sha256": "638773d69e1348c8d213cc0fdaf4107d170df7811af56f2cce372ca245556149",
+      "targets": [
+        [
+          0.3483995,
+          0.25451549999999995,
+          0.9941585,
+          0.9813745
+        ]
+      ],
+      "predictions": [
+        {
+          "bbox": [
+            0.3631541039988306,
+            0.2477499008178711,
+            0.9645728351172687,
+            1.0
+          ],
+          "confidence": 0.8986375331878662
+        }
+      ],
+      "latency_ms": 74.896,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "image": "images/val/000000000042.jpg",
+      "image_sha256": "c87afb6dfe55db1cada52479ed939a231e030d64f5e3c3eaf7eb1544591f853a",
+      "label_sha256": "c0e1ac95cf47310a3de9692cf0505fbf1ddcabceed575a3ecfac3c87f184f168",
+      "targets": [],
+      "predictions": [],
+      "latency_ms": 79.531,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "image": "images/val/000000000049.jpg",
+      "image_sha256": "86b46022d382f67b0934147fe515e1c3c3f5c04db45045516214b5e3092148e3",
+      "label_sha256": "0c0973cfb10a591266b92769e7cd43686133ea12faaa9d583702bf1c55e126e3",
+      "targets": [
+        [
+          0.5338315,
+          0.52086,
+          0.7062465,
+          0.66694
+        ],
+        [
+          0.31084,
+          0.52264,
+          0.46021,
+          0.6485000000000001
+        ],
+        [
+          0.3132287,
+          0.66842,
+          0.3445673,
+          0.73556
+        ],
+        [
+          0.7462987999999999,
+          0.6668000000000001,
+          0.7748552,
+          0.72166
+        ],
+        [
+          0.5013126499999999,
+          0.66874,
+          0.52010535,
+          0.7155600000000001
+        ],
+        [
+          0.91013145,
+          0.6668,
+          0.94897655,
+          0.68524
+        ]
+      ],
+      "predictions": [
+        {
+          "bbox": [
+            0.3111774915159531,
+            0.6762289428710937,
+            0.3457474195425279,
+            0.7363565673828125
+          ],
+          "confidence": 0.49184346199035645
+        },
+        {
+          "bbox": [
+            0.7376316501086778,
+            0.6573270263671875,
+            0.7755436133837762,
+            0.7194481811523438
+          ],
+          "confidence": 0.46928250789642334
+        },
+        {
+          "bbox": [
+            0.5010126869822424,
+            0.6659105224609375,
+            0.5236606948331898,
+            0.712873291015625
+          ],
+          "confidence": 0.354237824678421
+        }
+      ],
+      "latency_ms": 88.976,
+      "tp": 3,
+      "fp": 0,
+      "fn": 3
+    },
+    {
+      "image": "images/val/000000000061.jpg",
+      "image_sha256": "6460e4a7cc80e34815aba8910a23152a16a24a416fa598138bd9231cccd413e2",
+      "label_sha256": "d7988d745a68480c7331b323adeec29adb1b0a4df53b072ed45d9650893eb812",
+      "targets": [
+        [
+          0.4081255,
+          0.4219675,
+          0.48325049999999997,
+          0.5392625
+        ],
+        [
+          0.6146719500000001,
+          0.4310248,
+          0.66550005,
+          0.5124592
+        ],
+        [
+          0.40865645,
+          0.4028075,
+          0.46210955000000004,
+          0.5138325
+        ]
+      ],
+      "predictions": [],
+      "latency_ms": 67.829,
+      "tp": 0,
+      "fp": 0,
+      "fn": 3
+    }
+  ]
+}

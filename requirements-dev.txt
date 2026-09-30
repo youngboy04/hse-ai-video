@@ -1,0 +1,4 @@
+-r backend/requirements.txt
+-r inference/requirements.txt
+-r ingestion/requirements.txt
+onnx>=1.17,<2

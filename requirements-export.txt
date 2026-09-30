@@ -1,0 +1,6 @@
+# Optional, isolated environment for reproducing the recorded detector export.
+ultralytics==8.4.169
+torch==2.14.0
+onnx==1.23.1
+onnxslim==0.1.97
+onnxruntime==1.30.0

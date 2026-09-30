@@ -1,0 +1,17 @@
+.git
+.venv
+node_modules
+dist
+data
+*.db
+*.log
+.env
+.env.local
+tmp
+output
+outputs
+*.pt
+/yolo*.onnx
+test-results
+playwright-report
+models/*.onnx
